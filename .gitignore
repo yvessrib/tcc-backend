@@ -1,0 +1,49 @@
+# Dependências
+node_modules/
+package-lock.json
+
+# Variáveis de ambiente
+.env
+.env.*
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Diretórios de build
+dist/
+build/
+
+# Cache de ferramentas
+.cache/
+.nyc_output/
+coverage/
+*.tsbuildinfo
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+
+# Configurações de IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Arquivos de lock do Yarn
+yarn.lock
+
+# Arquivos de lock do pnpm
+pnpm-lock.yaml
+
+# Arquivos de lock do Bun
+bun.lockb
+
+# Outros arquivos temporários
+*.swp
+*.swo
+*.tmp
+*.bak
