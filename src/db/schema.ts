@@ -1,4 +1,4 @@
-import { pgTable, text } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial, text } from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
 import { real } from "drizzle-orm/pg-core";
 
@@ -12,9 +12,8 @@ export const users = pgTable(`users`, {
 })
 
 export const products = pgTable(`products`, {
-  id: text('id')
-    .primaryKey()
-    .$defaultFn(() => createId()),
+  id: serial('id')
+    .primaryKey(),
   name: text('name').notNull(),
   description: text('description').notNull(),
   image: text('image').notNull(),

@@ -1,6 +1,6 @@
 import { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import z from "zod";
-import { loginUser } from "../../functions/auth/login-user";
+import { loginUser } from "../../../functions/auth/login-user";
 
 export const loginRoute: FastifyPluginAsyncZod = async app => {
   app.post('/login', {
