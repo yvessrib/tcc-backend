@@ -1,14 +1,23 @@
 import { pgTable, text } from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
+import { real } from "drizzle-orm/pg-core";
 
-export const user = pgTable(`products`, {
+export const users = pgTable(`users`, {
   id: text('id')
     .primaryKey()
-    .$defaultFn(() => createId())
-    .unique(),
+    .$defaultFn(() => createId()),
+  name: text('name').notNull(),
+  email: text('email').notNull().unique(),
+  password: text('password').notNull(),
+})
+
+export const products = pgTable(`products`, {
+  id: text('id')
+    .primaryKey()
+    .$defaultFn(() => createId()),
   name: text('name').notNull(),
   description: text('description').notNull(),
   image: text('image').notNull(),
-  price: text('price').notNull(),
+  price: real('price').notNull(),
   category: text('category').notNull(),
 })
