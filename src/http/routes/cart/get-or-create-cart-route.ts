@@ -5,6 +5,8 @@ import z from "zod";
 export const getOrCreateCartRoute: FastifyPluginAsyncZod = async app => {
   app.get('/cart/:id', {
     schema: {
+      description: 'Get or create a cart by ID',
+      tags: ['Cart'],
       params: z.object({
         id: z.string()
       }),

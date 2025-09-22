@@ -7,6 +7,8 @@ export const updateProductRoute: FastifyPluginAsyncZod = async app => {
     '/products/:id',
     {
       schema: {
+        description: 'Update an existing product',
+        tags: ['Products'],
         params: z.object({
           id: z.coerce.string(),
         }),

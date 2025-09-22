@@ -7,6 +7,8 @@ export const deleteProductRoute: FastifyPluginAsyncZod = async app => {
     '/products/:id', 
   {
     schema: {
+      description: 'Delete a product by its ID',
+      tags: ['Products'],
       params: z.object({
         id: z.coerce.number(),
       }),

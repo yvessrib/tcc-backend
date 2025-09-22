@@ -1,6 +1,6 @@
 import fastify from 'fastify'
 import fastifyCors from '@fastify/cors'
-import { type ZodTypeProvider, validatorCompiler, serializerCompiler } from 'fastify-type-provider-zod'
+import { type ZodTypeProvider, validatorCompiler, serializerCompiler, jsonSchemaTransform } from 'fastify-type-provider-zod'
 
 import { createUserRoute } from './routes/users/create-user-route'
 import { loginRoute } from './routes/users/login-user-route'
@@ -17,6 +17,8 @@ import { getOrCreateCartRoute } from './routes/cart/get-or-create-cart-route'
 import { updateCartItemQuantityRoute } from './routes/cart/update-cart-item-quantity-route'
 import { deleteItemFromCartRoute } from './routes/cart/remove-item-from-cart-route'
 
+import { fastifySwagger } from '@fastify/swagger'
+import { fastifySwaggerUi } from '@fastify/swagger-ui'
 
 
 const app = fastify().withTypeProvider<ZodTypeProvider>()
@@ -28,6 +30,22 @@ app.register(fastifyCors, {
 
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
+
+app.register(fastifySwagger, {
+  openapi: {
+    info: {
+      title: 'E-commerce API',
+      description: 'API for an e-commerce application',
+      version: '1.0.0',
+    },
+    servers: [{ url: 'http://localhost:3333' }],
+  },
+  transform: jsonSchemaTransform,
+})
+
+app.register(fastifySwaggerUi, {
+  routePrefix: '/docs',
+})
 
 app.register(createUserRoute)
 app.register(loginRoute)

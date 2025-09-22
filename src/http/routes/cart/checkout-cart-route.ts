@@ -8,6 +8,8 @@ export const checkoutCartRoute: FastifyPluginAsyncZod = async app => {
     '/cart/checkout',
     {
       schema: {
+        description: 'Checkout the cart for a user',
+        tags: ['Cart'],
         body: z.object({
           userId: z.string(),
         }),

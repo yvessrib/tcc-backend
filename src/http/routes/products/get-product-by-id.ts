@@ -5,6 +5,8 @@ import { getProductById } from "../../../functions/products/get-product-by-id";
 export const getProductByIdRoute: FastifyPluginAsyncZod = async app => {
   app.get('/products/:id', {
     schema: {
+      description: 'Get a product by its ID',
+      tags: ['Products'],
       params: z.object({
         id: z.coerce.number()
       }),

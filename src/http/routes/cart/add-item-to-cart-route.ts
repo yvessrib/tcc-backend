@@ -7,6 +7,8 @@ export const addItemToCartRoute: FastifyPluginAsyncZod = async app => {
     '/cart',
     {
       schema: {
+        description: 'Add item to cart',
+        tags: ['Cart'],
         body: z.object({
           cartId: z.string(),
           productId: z.number().min(1),

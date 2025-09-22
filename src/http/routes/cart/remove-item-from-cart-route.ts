@@ -8,6 +8,8 @@ export const deleteItemFromCartRoute: FastifyPluginAsyncZod = async app => {
     '/cart',
   {
     schema: {
+      description: 'Remove item from cart',
+      tags: ['Cart'],
       body: z.object({
         cartId: z.string(),
         productId: z.number().min(1),
