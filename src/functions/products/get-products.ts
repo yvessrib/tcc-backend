@@ -5,7 +5,7 @@ export async function getProducts() {
   const productsComplete = await db
     .select()
     .from(products)
-    .orderBy(products.category)
+    .orderBy(products.categories)
 
   if (!productsComplete) {
     throw new Error("Error fetching products");

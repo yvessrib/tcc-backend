@@ -8,10 +8,10 @@ interface updateProductRequest {
   description?: string,
   image?: string,
   price?: number,
-  category?: string
+  categories?: string[]
 }
 
-export async function updateProduct({id, name, description, image, price, category} : updateProductRequest) {
+export async function updateProduct({id, name, description, image, price, categories} : updateProductRequest) {
 
   const existingProduct = await db
     .select()
@@ -37,8 +37,8 @@ export async function updateProduct({id, name, description, image, price, catego
   if (price !== undefined) {
     updateData.price = price;
   }
-  if (category !== undefined) {
-    updateData.category = category;
+  if (categories !== undefined) {
+    updateData.categories = categories;
   }
 
   if (Object.keys(updateData).length === 0) {

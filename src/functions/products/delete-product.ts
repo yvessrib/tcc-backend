@@ -7,7 +7,7 @@ export async function deleteProduct(id: number) {
     .select()
     .from(products)
     .where(eq(products.id, id))
-    .orderBy(products.category)
+    .orderBy(products.categories)
 
   if (!existingProduct) {
     throw new Error("Error fetching product");

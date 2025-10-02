@@ -7,7 +7,7 @@ interface CreateProductRequest {
   description: string,
   image: string,
   price: number,
-  category: string
+  categories: Array<string>
 }
 
 export async function createProduct(
@@ -16,7 +16,7 @@ export async function createProduct(
     description,
     image,
     price,
-    category
+    categories
   }: CreateProductRequest){
 
   const existingProduct = await db
@@ -34,7 +34,7 @@ export async function createProduct(
     description,
     image,
     price,
-    category
+    categories
   }).returning();
 
   if (!newProduct) {

@@ -19,7 +19,7 @@ export const products = pgTable(`products`, {
   description: text('description').notNull(),
   image: text('image').notNull(),
   price: real('price').notNull(),
-  category: text('category').notNull(),
+  categories: text("categories").array().notNull(),
 })
 
 export const carts = pgTable(`carts`, {

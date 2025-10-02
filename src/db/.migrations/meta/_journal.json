@@ -50,6 +50,13 @@
       "when": 1758541121362,
       "tag": "0006_pretty_leopardon",
       "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1759433062313,
+      "tag": "0007_moaning_mojo",
+      "breakpoints": true
     }
   ]
 }
