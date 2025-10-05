@@ -13,7 +13,11 @@ export async function updateCartItemQuantity(params: UpdateCartItemQuantityParam
     .update(cartItems)
     .set({ quantity: params.newQuantity })
     .where(and(eq(cartItems.cartId, params.cartId), eq(cartItems.productId, params.productId)))
-    .returning();
+    .returning();   
+
+  console.log(params) 
+
+  console.log(updatedItem);
 
   return updatedItem;
 }

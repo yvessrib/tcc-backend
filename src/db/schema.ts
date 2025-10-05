@@ -2,6 +2,8 @@ import { integer, pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
 import { createId } from "@paralleldrive/cuid2";
 import { real } from "drizzle-orm/pg-core";
 import { string } from "zod/v4";
+import { eq } from "drizzle-orm";
+import { db } from ".";
 
 export const users = pgTable(`users`, {
   id: text('id')
